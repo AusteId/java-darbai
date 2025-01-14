@@ -3,7 +3,7 @@ package lt.techin.eshop;
 public class Medicine extends Product {
     private final double PVM = 9;
 
-    public Medicine(String title, double priceNeto, double pvm) {
+    public Medicine(String title, double priceNeto) {
         super(title, priceNeto);
     }
 
@@ -14,11 +14,11 @@ public class Medicine extends Product {
 
     @Override
     public double countBrutoInFranks2() {
-        return getPriceNeto() + (getPriceNeto() / 100 * PVM) * 0.9346;
+        return countBrutoInEuros2() * getSwissFrancExchangeRate();
     }
 
-    @Override
-    public double getPvm() {
-        return PVM;
-    }
+//    @Override
+//    public double getPvm() {
+//        return PVM;
+//    }
 }

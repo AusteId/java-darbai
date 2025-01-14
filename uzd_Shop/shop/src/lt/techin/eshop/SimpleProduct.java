@@ -14,11 +14,11 @@ public class SimpleProduct extends Product {
 
     @Override
     public double countBrutoInFranks2() {
-        return getPriceNeto() + (getPriceNeto() / 100 * PVM) * 0.9346;
+        return countBrutoInEuros2() * getSwissFrancExchangeRate();
     }
 
-    @Override
-    public double getPvm() {
-        return PVM;
-    }
+//    @Override
+//    public double getPvm() {
+//        return PVM;
+//    }
 }
