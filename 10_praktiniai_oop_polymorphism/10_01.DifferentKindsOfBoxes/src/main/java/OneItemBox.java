@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class OneItemBox extends Box {
-    
+
     private ArrayList<Item> itemOneInBox = new ArrayList<>();
 
     public OneItemBox(){
