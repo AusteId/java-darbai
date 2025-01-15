@@ -12,9 +12,9 @@ public class DictionaryOfManyTranslations {
         translationsInList.add(translation);
     }
 
-//    public ArrayList<String> translate(String word) {
-//
-//    }
+    public ArrayList<String> translate(String word) {
+        return translations.getOrDefault(word, new ArrayList<>());
+    }
 
     public void remove(String word) {
         translations.remove(word);
