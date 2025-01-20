@@ -9,7 +9,8 @@ public class Main {
         storage.addProduct(p);
         System.out.println(s.getAllCash());
         System.out.println(s.getAllProducts());
-        System.out.println(storage);
+        storage.displayAllProductsWithQuantity();
+        storage.displayAllProductsWithPrice();
 
     }
 }
