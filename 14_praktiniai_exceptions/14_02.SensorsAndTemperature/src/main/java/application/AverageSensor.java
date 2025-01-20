@@ -20,16 +20,20 @@ public class AverageSensor implements Sensor {
 
     @Override
     public void setOn() {
-        for(Sensor sensor : sensors) {
-            sensor.setOn();
-        }
+//        for(Sensor sensor : sensors) {
+//            sensor.setOn();
+//        }
+
+        sensors.forEach(Sensor::setOn);
     }
 
     @Override
     public void setOff() {
-        for(Sensor sensor : sensors) {
-            sensor.setOff();
-        }
+//        for(Sensor sensor : sensors) {
+//            sensor.setOff();
+//        }
+
+        sensors.forEach(Sensor::setOff);
     }
 
     @Override
@@ -38,15 +42,11 @@ public class AverageSensor implements Sensor {
             throw new IllegalStateException();
         }
 
-        int sum = 0;
+        int average = (int) sensors.stream().mapToInt(a -> a.read()).average().orElse(0);
 
-        for (Sensor sensor : sensors) {
-            sum += sensor.read();
-        }
+        integerList.add(average);
 
-        integerList.add(sum / sensors.size());
-
-        return sum / sensors.size();
+        return average;
     }
 
     public void addSensor(Sensor toAdd) {
