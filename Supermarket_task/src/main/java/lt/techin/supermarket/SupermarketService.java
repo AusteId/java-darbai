@@ -8,6 +8,5 @@ public interface SupermarketService {
     Map<Double, Integer> getAllCash();
 
 
-
-
+    Product selectProduct(String product);
 }
