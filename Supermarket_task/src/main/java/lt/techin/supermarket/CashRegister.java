@@ -24,6 +24,14 @@ public class CashRegister {
         cash.put(denomination, quantity);
     }
 
+    public void addAdditionalCoins(double denomination, int quantity) {
+        cash.replace(denomination, cash.getOrDefault(denomination, 0) + quantity);
+    }
+
+    public void removeCoins(double denomination, int quantity) {
+
+    }
+
     public int getQuantity(double denomination) {
         return cash.getOrDefault(denomination, 0);
     }

@@ -28,7 +28,10 @@ public class SupermarketServiceImpl implements SupermarketService {
         return productStorage.selectProduct(productName);
     }
 
-    public double executePayment(double price, double addedCoin) {
-        return price - addedCoin;
+    @Override
+    public void addAdditionalCoins(double denomination, int quantity) {
+        cashRegister.addAdditionalCoins(denomination, quantity);
     }
+
+
 }

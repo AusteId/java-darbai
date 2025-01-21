@@ -37,8 +37,16 @@ public class Product {
         return quantity;
     }
 
-    public void setQuantity(int howMuch) {
+    public void setQuantityWithAmount(int howMuch) {
         quantity += howMuch;
+    }
+
+    public void setQuantityByOneUp() {
+        quantity++;
+    }
+
+    public void setQuantityByOneDown() {
+        quantity--;
     }
 
     public String toString() {

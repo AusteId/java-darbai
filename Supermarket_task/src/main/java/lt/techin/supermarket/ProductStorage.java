@@ -21,7 +21,7 @@ public class ProductStorage {
     }
 
     public void displayAllProductsWithQuantity() {
-        products.forEach(a -> System.out.println(a.getName().toUpperCase() + " quantity: " + a.getQuantity()));
+        products.forEach(a -> System.out.println(a.getName().toUpperCase() + " Quantity: " + a.getQuantity()));
     }
 
     public void displayAllProductsWithPrice() {

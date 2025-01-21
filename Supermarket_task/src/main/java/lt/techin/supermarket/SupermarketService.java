@@ -9,4 +9,5 @@ public interface SupermarketService {
 
 
     Product selectProduct(String product);
+    void addAdditionalCoins(double denomination, int quantity);
 }
