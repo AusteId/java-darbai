@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="uml_02.ThePlayerAndTheBot" />
+        <module name="uml_01.StudentAndUniversity" />
+        <module name="uml_06.TheThreePackages" />
+        <module name="uml_05.FirstPackages" />
+        <module name="uml_04.BiggerClassDiagram" />
+        <module name="uml_03.SaveablePerson" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -8,10 +8,10 @@ public class SomeKindOfConsumer extends BeerConsumer {
     @Override
     protected boolean shouldConsumeBeer(BeerBottle beerBottle) {
 
-        if(beerBottle.getVolumeInLiters() > 0.5 || beerBottle.getAlcoholContentInPercent() > 6 ||  getBloodAlcoholContentInLiters() < 120) {
-            return false;
+        if(beerBottle.getVolumeInLiters() <= 0.5 && beerBottle.getAlcoholContentInPercent() <= 6 &&  getBloodAlcoholContentInLiters() < .120) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
