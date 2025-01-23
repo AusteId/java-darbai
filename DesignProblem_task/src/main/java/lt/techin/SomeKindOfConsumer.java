@@ -17,12 +17,8 @@ public class SomeKindOfConsumer extends BeerConsumer {
     @Override
     public BeerBottle showBeerBottleToAStranger(BeerBottle beerBottle, boolean b) {
 
-        BeerBottle beerBottle1;
-
         if(b) {
-            BeerBottle bottle = new DefaultBeerBottle(beerBottle.getVolumeInLiters(), 0);
-//            bottle.takeASip(bottle.getVolumeInLiters());
-            return bottle;
+            return new BeerBottleAdapter(beerBottle);
         }
         return beerBottle;
     }
