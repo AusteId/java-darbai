@@ -10,31 +10,40 @@ import java.util.List;
 public class NewsServiceNewsService implements NewsService {
 
     private List<Article> articles;
-    private List<Article> rightArticles;
-    private ArrayList<Swearwords> swearwords;
+//    private List<Article> rightArticles = new ArrayList<>();
+    private ArrayList<String> swearwords;
 
     public NewsServiceNewsService() {
         NewsServiceImpl newsService = new NewsServiceImpl();
         this.articles = newsService.getArticles();
+        swearwords = Swearwords.getSwearwords();
     }
 
     @Override
     public List<Article> getArticles() {
-        String heading = "";
         String brief = "";
+        List<Article> rightArticles = new ArrayList<>();
 
-        for (int i = 0; i < articles.size(); i++) {
-            for (int j = 0; j < swearwords.size(); j++) {
-                if(!articles.get(i).getHeading().contains(swearwords.get(j).toString())) {
-                    if(articles.get(i).getBrief().contains(swearwords.get(j).toString())) {
-                        articles.replaceAll(a -> );
-                    }
+        for (Article article : articles) {
+            Article goods = article;
+            boolean isSwearwordsInHeading = false;
+            for (String swearword : swearwords) {
+
+                if (article.getHeading().toLowerCase().contains(swearword)) {
+                    isSwearwordsInHeading = true;
                 }
             }
 
+            if (!isSwearwordsInHeading) {
+                for (String swearword : swearwords) {
+                    if (article.getBrief().toLowerCase().contains(swearword)) {
+                        brief = article.getBrief().replaceAll(swearword, "***");
+                        goods = new GoodArticle(article.getHeading(), brief);
+                    }
+                }
+                rightArticles.add(goods);
+            }
         }
-
-
-        return List.of();
+        return rightArticles;
     }
 }
