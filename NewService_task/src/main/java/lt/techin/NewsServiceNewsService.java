@@ -6,13 +6,12 @@ import lt.vtvpmc.NewsServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class NewsServiceNewsService implements NewsService {
 
     private List<Article> articles;
     private List<Article> rightArticles;
-    Swearwords swearwords;
+    private ArrayList<Swearwords> swearwords;
 
     public NewsServiceNewsService() {
         NewsServiceImpl newsService = new NewsServiceImpl();
@@ -25,7 +24,14 @@ public class NewsServiceNewsService implements NewsService {
         String brief = "";
 
         for (int i = 0; i < articles.size(); i++) {
-            if(articles.get(i).getHeading(). )
+            for (int j = 0; j < swearwords.size(); j++) {
+                if(!articles.get(i).getHeading().contains(swearwords.get(j).toString())) {
+                    if(articles.get(i).getBrief().contains(swearwords.get(j).toString())) {
+                        articles.replaceAll(a -> );
+                    }
+                }
+            }
+
         }
 
 
