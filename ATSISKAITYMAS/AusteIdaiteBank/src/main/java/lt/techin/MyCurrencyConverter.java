@@ -1,9 +1,6 @@
 package lt.techin;
 
-import lt.itakademija.exam.Currency;
-import lt.itakademija.exam.CurrencyConverter;
-import lt.itakademija.exam.CurrencyRatesProvider;
-import lt.itakademija.exam.Money;
+import lt.itakademija.exam.*;
 
 public class MyCurrencyConverter implements CurrencyConverter {
 
@@ -15,6 +12,10 @@ public class MyCurrencyConverter implements CurrencyConverter {
 
     @Override
     public Money convert(Currency from, Currency to, Money amount) {
+
+        if(currencyRatesProvider.getRate(from, to) == null) {
+            throw new CurrencyConversionException("Unable to convert currency");
+        }
 
         Money convertedAmount = amount.multiply(currencyRatesProvider.getRate(from, to));
 
