@@ -4,6 +4,12 @@ import lt.itakademija.exam.*;
 
 public class BankRuptcy implements Bank {
 
+    private CurrencyConverter currencyConverter;
+
+    public BankRuptcy(CurrencyConverter currencyConverter) {
+        this.currencyConverter = currencyConverter;
+    }
+
     @Override
     public Customer createCustomer(PersonCode personCode, PersonName personName) {
         return null;

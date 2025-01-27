@@ -8,11 +8,11 @@ import lt.itakademija.exam.test.BaseTest;
 public class BankTest extends BaseTest {
     @Override
     protected Bank createBank(CurrencyConverter currencyConverter) {
-        return new BankRuptcy();
+        return new BankRuptcy(currencyConverter);
     }
 
     @Override
     protected CurrencyConverter createCurrencyConverter(CurrencyRatesProvider currencyRatesProvider) {
-        return new MyCurrencyConverter();
+        return new MyCurrencyConverter(currencyRatesProvider);
     }
 }
