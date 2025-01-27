@@ -4,9 +4,7 @@ import lt.itakademija.exam.Exercises;
 import lt.itakademija.exam.IntegerGenerator;
 import lt.itakademija.exam.NumberFilter;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MyNumbers implements Exercises {
 
@@ -32,36 +30,77 @@ public class MyNumbers implements Exercises {
 
     @Override
     public List<Integer> consume(Iterator<Integer> iterator) {
-        return List.of();
+
+        List<Integer> integers = new ArrayList();
+
+        while (iterator.hasNext()) {
+            integers.add(iterator.next());
+        }
+
+        return integers;
     }
 
     @Override
     public int computeSumOfNumbers(int i) {
-        return 0;
+
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int j = 1; j <= i; j++) {
+            numbers.add(j);
+        }
+
+        return numbers.stream().reduce(Integer::sum).orElse(0);
     }
 
     @Override
     public int computeSumOfNumbers(int i, NumberFilter numberFilter) {
-        return 0;
+
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int j = 1; j <= i; j++) {
+            numbers.add(j);
+        }
+
+        return numbers.stream().filter(numberFilter::accept).reduce(Integer::sum).orElse(0);
     }
 
     @Override
     public List<Integer> computeNumbersUpTo(int i) {
-        return List.of();
+
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int j = 1; j < i; j++) {
+            numbers.add(j);
+        }
+
+        return numbers;
     }
 
     @Override
     public Map<Integer, Integer> countOccurrences(List<Integer> list) {
-        return Map.of();
+
+        Map<Integer, Integer> occurrences = new HashMap<>();
+
+        for (int number : list) {
+            if (!occurrences.containsKey(number)) {
+                occurrences.put(number, 1);
+            } else {
+                int initialAmount = occurrences.get(number);
+                occurrences.put(number, initialAmount + 1);
+            }
+        }
+        return occurrences;
     }
 
     @Override
     public IntegerGenerator createIntegerGenerator(int i, int i1) {
-        return null;
+
+        return new NewGenerator(i, i1);
+
     }
 
     @Override
     public IntegerGenerator createFilteredIntegerGenerator(IntegerGenerator integerGenerator, NumberFilter numberFilter) {
-        return null;
+        return new NewFilteredGenerator(integerGenerator, numberFilter);
     }
 }
